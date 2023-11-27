@@ -8,6 +8,10 @@ RUN mamba install --yes \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
+# install separate pip libraries
+RUN pip install \
+    split-image==2.0.1
+
 # additional GPU-enabled steps
 FROM cpu-only as gpu-enabled
 
